@@ -11,7 +11,7 @@ headers = {'Referer': 'http://music.163.com/',
            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36 Edg/99.0.1150.36'
 }
 
-def music_list(playlist_id):
+def music(playlist_id):
     global list_name
     global list_id
     global list_mp3
