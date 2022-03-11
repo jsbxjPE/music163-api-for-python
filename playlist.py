@@ -26,6 +26,7 @@ def music(playlist_id):
         list_id.append(i['id'])
     for i in list_id:
         list_mp3.append(json.loads(requests.get('https://api.muxiaoguo.cn/api/163music?id={}'.format(i)).text)['data']['mp3url'])
+        #sleep(1.4)
     return list_mp3, list_name
 
 def download(path):
