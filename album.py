@@ -23,6 +23,7 @@ def music(album_id):
         al_id.append(i['id'])
     for i in al_id:
         al_mp3.append(json.loads(requests.get('https://api.muxiaoguo.cn/api/163music?id={}'.format(i)).text)['data']['mp3url'])
+        #sleep(1.4)
     return al_mp3, al_name
 
 def download(path):
