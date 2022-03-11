@@ -2,7 +2,7 @@ import requests
 import json
 from time import sleep
 
-global al__name
+global al_name
 global al_id
 global al_mp3
 global al_data
