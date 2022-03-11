@@ -11,19 +11,20 @@ headers = {'Referer': 'http://music.163.com/',
            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.51 Safari/537.36 Edg/99.0.1150.36'
 }
 
-def music(album_id):
+def music(album_id = []):
     global al_name
     global al_id
     global al_mp3
     global al_data
     al_name, al_id, al_mp3, al_data = [], [], [], []
-    al_data = json.loads(requests.get('http://music.163.com/api/album/{}?ext=true&id={}&offset=0&total=true'.format(str(album_id), str(album_id))).text)['album']['songs']
-    for i in al_data:
-        al_name.append(i['name'])
-        al_id.append(i['id'])
-    for i in al_id:
-        al_mp3.append(json.loads(requests.get('https://api.muxiaoguo.cn/api/163music?id={}'.format(i)).text)['data']['mp3url'])
-        #sleep(1.4)
+    for i in album_id:
+        al_data = json.loads(requests.get('http://music.163.com/api/album/{}?ext=true&id={}&offset=0&total=true'.format(str(album_id), str(album_id))).text)['album']['songs']
+        for i in al_data:
+            al_name.append(i['name'])
+            al_id.append(i['id'])
+        for i in al_id:
+            al_mp3.append(json.loads(requests.get('https://api.muxiaoguo.cn/api/163music?id={}'.format(i)).text)['data']['mp3url'])
+            #sleep(1.4)
     return al_mp3, al_name
 
 def download(path):
