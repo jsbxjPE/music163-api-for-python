@@ -36,3 +36,4 @@ def download(path):
         name = '{}/{}.mp3'.format(path, list_name[i])
         with open(name, 'wb') as f:
             f.write(content)
+        #sleep(1.4)
